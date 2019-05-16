@@ -2,15 +2,21 @@ require_relative 'dog.rb'
 require_relative 'owner.rb'
 
 class Cat
+  
+  @@all_cats = []
 
   attr_reader :name
-  attr_accessor :mood
+  attr_accessor :mood, :owner
 
   # code goes here
-  def initialize(name,mood="nervous")
+  def initialize(name,owner)
     @name = name
-    @mood = mood
+    @mood = "nervous"
+    @@all_cats << self
   end
 
+  def self.all
+    @@all_cats
+  end
 
 end
